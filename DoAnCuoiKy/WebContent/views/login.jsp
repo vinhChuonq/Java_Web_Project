@@ -13,6 +13,11 @@
 <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+body {
+	padding-top: 10%;
+}
+</style>
 </head>
 <body>
 
@@ -24,29 +29,30 @@
 						<h3 class="panel-title">Please Sign In</h3>
 					</div>
 					<div class="panel-body">
-						<form action="Login" method="post">
+						<form action="Login" method="post" class="form-login" name="login">
 							<fieldset>
 								<div class="form-group">
 									<i class="alert alert-light text-danger p-0">${message}</i>
 								</div>
 								<div class="form-group">
 									<input class="form-control" placeholder="E-mail" name="email"
-										type="email" maxlength="50">
+										type="email" maxlength="50" minlenght="6">
 								</div>
 								<div class="form-group">
 									<input class="form-control" placeholder="Password"
-										name="password" type="password" value="" maxlength="50">
+										name="password" type="password" value="" maxlength="50"
+										minlenght="6">
 								</div>
 								<div class="form-check form-check-inline mb-0">
 									<input type="checkbox" class="form-check-input" name="remember"
 										id="remember" /> <label for="remember">Remember</label>
 								</div>
-								<button class="btn btn-lg btn-success btn-block" type="submit"
-									value="Login">Login</button>
+								<button onclick="send()"
+									class="btn btn-lg btn-success btn-block" type="submit">Login</button>
 
 							</fieldset>
-							<a href="/view/register.jsp" color="blue" type="link">Click
-								here to Register</a>
+							<a href="Register" color="blue" type="link">Click here to
+								Register</a>
 						</form>
 					</div>
 				</div>
@@ -68,5 +74,7 @@
 		integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
 		crossorigin="anonymous"></script>
 
+
+	
 </body>
 </html>

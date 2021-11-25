@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html style="overflow: hidden;">
+<html>
 <head>
 <style>
 /*Css viewcontent*/
@@ -78,21 +78,6 @@
 	text-align: unset;
 }
 
-.td-son {
-	
-}
-
-.table-son .tr-son:nth-child(odd) {
-	background-color: lightgray;
-}
-
-.table-son .tr-son:nth-child(even) {
-	background-color: white;
-}
-
-.table-son .tr-son:nth-child(1) {
-	background-color: white;
-}
 </style>
 <meta charset="ISO-8859-1">
 <title>View Contents</title>
@@ -100,11 +85,11 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
 <body>
-	<form action="ViewContent" method="post">
 		<div class="container-viewcontent">
 			<div class="row-main">
 				<h1 style="margin-top: 2%;">View Content</h1>
 				<hr />
+				<p style="margin: 0;padding: 0;color: green;font-size: x-large">${message}</p><br />
 				<table class="table-main">
 					<tr class="tr-main">
 						<th class="th-main">View Content List</th>
@@ -124,8 +109,8 @@
 										<td class="td-son">${content.title}</td>
 										<td class="td-son">${content.brief}</td>
 										<td class="td-son">${content.createddate}</td>
-										<td class="td-son"><a href="#" style="margin-right: 20px">Edit</a><a
-											href="DeleteContent?id=${content.id}">Delete</a></td>
+										<td class="td-son"><a href="editcontent.tiles?id=${content.id}" style="margin-right: 20px">Edit</a><a
+											href="deletecontent.tiles?id=${content.id}">Delete</a></td>
 									</tr>
 								</c:forEach>
 							</table></td>
@@ -133,6 +118,5 @@
 				</table>
 			</div>
 		</div>
-	</form>
 </body>
 </html>

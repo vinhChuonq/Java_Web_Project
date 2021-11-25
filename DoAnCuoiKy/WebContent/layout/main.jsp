@@ -39,7 +39,16 @@ section {
 	width: 80%;
 	border: 1px solid red;
 	padding: 10px;
-	min-height: 500px;
+	min-height: 573px;
+}
+
+@media screen and (max-width: 500px) {
+    aside {
+    	width: 100%;
+    }
+    section {
+    	width: 100%;
+    }
 }
 
 
@@ -54,6 +63,7 @@ section {
 		<aside>
 			<tiles:insertAttribute name="menu" />
 		</aside>
+		<div><tiles:insertAttribute name="data" /></div>
 		<section>
 			<tiles:insertAttribute name="body" />
 		</section>

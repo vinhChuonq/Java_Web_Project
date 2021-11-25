@@ -1,109 +1,167 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html style="overflow: hidden;">
+<head>
 <style>
-* {
-	box-sizing: border-box;
+/*Css viewcontent*/
+.container-viewcontent {
+	display: flex;
 }
-.container {
-	background-color: #FFF;
-	border-radius: 5px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-	overflow: hidden;
-	width: 900px;
-	max-width: 100%;
+
+/*Css viewcontents*/
+.viewcontents-container {
+	height: 5%;
 }
-.header {
-	border-bottom: 1px solid #f0f0f0;
-	background-color: #f7f7f7;
-	padding: 10px 15px;
+
+.viewcontents-container i {
+	padding-left: 3%;
+	padding-top: 2.5%;
+	margin-right: 10px;
 }
-.header p {
-	margin: 0;
+
+.viewcontents-container a {
+	color: blue;
+	padding-top: 2.5%;
+	text-decoration: none;
 }
-.form {
-	padding: 10px 17px;	
+
+.viewcontents-container:hover {
+	background-color: lightgray;
 }
-.form-control {
-	margin-bottom: 10px;
-	padding-bottom: 20px;
-	position: relative;
-	display: block;
+
+/*Css main*/
+.row-main {
+	width: 100%;
 }
-.form-control label {
-	display: inline-block;
-	margin-bottom: px;
+
+.row-main hr {
+	border-color: rgb(242, 242, 242);
+	width: 100%;
 }
-.form-control input {
-	border: 2px solid #f0f0f0;
-	border-radius: 4px;
-	display: block;
-	font-family: inherit;
-	font-size: 14px;
-	padding: 10px;
-	width: 80%;
-	height: 30%;
+/*Css table-main*/
+.table-main, .td-main, .th-main {
+	border: 1px solid black;
 }
-textarea{
-	border: 2px solid #f0f0f0;
-	border-radius: 4px;
-	display: block;
-	font-family: inherit;
-	font-size: 14px;
-	padding: 10px;
-	width: 80%;
+
+.th-main {
+	text-align: unset;
+	background-color: lightgray;
+	font-size: 150%;
+	padding-bottom: 1%;
+	padding-top: 1%;
+	padding-left: 1%;
+	font-weight: lighter;
 }
-textarea form-control1 input {
-	border: 2px solid #f0f0f0;
-	border-radius: 4px;
-	display: block;
-	font-family: inherit;
-	font-size: 14px;
-	padding: 10px;
-	width: 80%;
-	height: 500px;
+
+.td-main {
+	padding: 1%;
 }
-.form-control input:focus {
-	outline: 0;
-	border-color: #777;
+
+.table-main {
+	width: 95%;
+	border-collapse: collapse;
 }
-.form button {
-	background-color: #3CB371;
-	border: 2px solid #3CB371;
-	border-radius: 4px;
-	color: #fff;
-	display: inline;
-	font-family: inherit;
-	font-size: 15px;
-	padding: 10px;
-	margin-top: 5px;
-	width: 15%;
+/*Css table-son*/
+.table-son, .td-son, .th-son {
+	border: 1px solid black;
+}
+
+.table-son {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 20px;
+}
+
+.th-son {
+	text-align: unset;
+}
+
+.td-son {
+	
+}
+
+.table-son .tr-son:nth-child(odd) {
+	background-color: lightgray;
+}
+
+.table-son .tr-son:nth-child(even) {
+	background-color: white;
+}
+
+.table-son .tr-son:nth-child(1) {
+	background-color: white;
 }
 </style>
-<head>
 <meta charset="ISO-8859-1">
-<title>Form Content</title>
+<title>View Contents</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
 <body>
-	<div> <h2 style="margin-top: 2%;">Add Content</h2> </div>
-    <div class="container">
-        <div class="header">
-                    <p>Content Form Elements</p>        
-        </div>
-          <form id="form" class="form">
-            <div class="form-control">
-              <label for="title"><h4>Title</h4></label>
-                        <input type="text" placeholder="Enter the title" id="title" size="50" minlength="10" maxlength="200"/>
-              <label for="exampleFormControlTextarea1" class="form-label"><h4>Brief</h4></label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" minlength="30" maxlength="150"></textarea>
-              <label for="exampleFormControlTextarea1" class="form-label"><h4>Content</h4></label>
-              <textarea class="form-control1" id="exampleFormControlTextarea1" rows="9" cols="70" minlength="50" maxlength="1000"></textarea>
-            </div>
-             <button>Submit Button</button>
-             <button>Reset Button</button>
-          </form>
-        </div>
-    </div>
+	<div class="container-viewcontent">
+		<div class="row-main">
+			<c:if test="${id == null}">
+				<h1 style="margin-top: 2%;">Add Content</h1>
+			</c:if>
+			<c:if test="${id != null}">
+				<h1 style="margin-top: 2%;">Edit Content</h1>
+			</c:if>
+			<hr />
+			<table class="table-main">
+				<tr>
+					<th class="th-main">Content Form Elements</th>
+				</tr>
+				<tr>
+					<c:if test="${id == null}">
+				
+						<td class="td-main">
+						<form action="AddContent" method="post">
+							<p style="margin: 0;padding: 0;color: green;font-size: x-large">${message}</p><br />
+							
+							<label for="title">Title</label><br /> 
+							<input type="text" id="title" name="title" placeholder="Enter the title" /><br />
+
+							<label for="brief">Brief</label><br /> 
+							<textarea id="brief" name="brief" rows="3"></textarea><br /> 
+							
+							<label for="content">Content</label><br />
+							<textarea id="content" name="content" rows="9" cols="70"></textarea><br />
+
+							<button type="submit">Submit Button</button>
+							<button type="reset">Reset Button</button>
+						</form>
+						</td>
+					
+					</c:if>
+					<c:if test="${id != null}">
+						
+						<td class="td-main">
+							<form action="EditContent" method="post">
+								<p style="margin: 0;padding: 0;color: green;font-size: x-large">${message}</p><br />
+							
+								<input type="hidden" name="id" value="<c:out value='${id}' />" />
+								<label for="title">Title</label><br />
+								<input type="text" id="title" name="title" value="${title}" /><br /> 
+							
+								<label for="brief">Brief</label><br />
+								<textarea id="brief" name="brief" rows="3">${brief}</textarea><br /> 
+							
+								<label for="content">Content</label><br />
+								<textarea id="content" name="content" rows="9" cols="70">${content}</textarea><br />
+
+								
+								<button type="submit">submit</button>
+						
+								<button type="reset">Reset Button</button>
+							</form>
+						</td>
+						
+					</c:if>
+				</tr>
+			</table>
+		</div>
+	</div>
 </body>
 </html>

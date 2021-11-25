@@ -87,7 +87,7 @@
 					</h1>
 				</button>
 				<div class="dropdown-menu">
-					<a href="editprofile.tiles"><i class="fas fa-user"></i>User Profile</a>
+					<a href="editprofile.tiles?id=1"><i class="fas fa-user"></i>User Profile</a>
 					<hr />
 					<a href="Login"><i class="fas fa-sign-out-alt"></i>Logout</a>
 				</div>

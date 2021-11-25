@@ -3,6 +3,6 @@
 <head>
 </head>
 <body>
-<tiles:insertDefinition name="main" />
+<tiles:insertDefinition name="viewcontent" />
 </body>
 </html>
