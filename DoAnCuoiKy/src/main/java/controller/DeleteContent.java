@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-import model.DAO;
+import dao.DAO;
 
 /**
  * Servlet implementation class DeleteContent
@@ -25,7 +25,7 @@ public class DeleteContent extends HttpServlet {
 		String id = request.getParameter("id");
 		DAO dao= new DAO();
 		dao.deleteContent(id);
-		response.sendRedirect("ViewContent");
+		request.getRequestDispatcher("viewcontent.tiles").forward(request, response);
 	}
 
 }

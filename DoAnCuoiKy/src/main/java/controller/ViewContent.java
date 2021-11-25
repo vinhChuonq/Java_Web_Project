@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.DAO;
-import model.Content;
+import dao.DAO;
+import dao.Content;
 
 @WebServlet("/ViewContent")
 public class ViewContent extends HttpServlet {
@@ -25,7 +25,6 @@ public class ViewContent extends HttpServlet {
 		DAO dao = new DAO();
 		List<Content> list = dao.getAllContent();
 		request.setAttribute("listcontent", list);
-		request.getRequestDispatcher("/views/viewcontent.jsp").forward(request, response);
 	}
 
 }
